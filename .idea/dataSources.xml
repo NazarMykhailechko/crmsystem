@@ -15,5 +15,11 @@
       <jdbc-driver>com.dbschema.CassandraJdbcDriver</jdbc-driver>
       <jdbc-url>jdbc:sqlserver://DESKTOP-47USPHT/SQLEXPRESS;database=crmsystem</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="dcyc73dl0bybwg8@ne-az-sql-serv1.database.windows.net" uuid="e5644d54-5994-408d-bdd3-c631082fcc48">
+      <driver-ref>azure.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://ne-az-sql-serv1.database.windows.net:1433;database=dcyc73dl0bybwg8</jdbc-url>
+    </data-source>
   </component>
 </project>
