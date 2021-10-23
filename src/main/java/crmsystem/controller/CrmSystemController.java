@@ -82,7 +82,7 @@ public class CrmSystemController {
                         "      ,[▲середден розмір актив]\n" +
                         "      ,[▲середден розмір пасив]\n" +
                         "      ,[▲заг дох акт (ROA)]\n" +
-                        "  FROM [crmsystem].[dbo].[comissdata]\n");
+                        "  FROM [comissdata]\n");
                 List<Object[]> results1 = q1.getResultList();
 
                 model.addAttribute("commisdata", results1);
@@ -108,7 +108,7 @@ public class CrmSystemController {
                         "      ,[▲середден розмір актив]\n" +
                         "      ,[▲середден розмір пасив]\n" +
                         "      ,[▲заг дох акт (ROA)]\n" +
-                        "  FROM [crmsystem].[dbo].[comissdata]\n" +
+                        "  FROM [comissdata]\n" +
                         "  where [ManageLogin] = ?");
                 q1.setParameter(1,principal.getName());
                 List<Object[]> results1 = q1.getResultList();
@@ -132,7 +132,7 @@ public class CrmSystemController {
     @RequestMapping("/mainform/edrpou/{edrpou}/cust/{cust}")
     public String getCommissDetails(Model model, @PathVariable(name = "edrpou") String edrpou, @PathVariable(name = "cust") String cust) {
 
-        Query fieldnames = em.createNativeQuery("SELECT distinct [dates] FROM [crmsystem].[dbo].[DATABASEcomision] order by [dates] desc");
+        Query fieldnames = em.createNativeQuery("SELECT distinct [dates] FROM [DATABASEcomision] order by [dates] desc");
         List<Object[]> listOfFields = fieldnames.getResultList();
 
         Query q = em.createNativeQuery("EXEC [dbo].[crossdata] ?, ?");
