@@ -9,16 +9,16 @@ import java.sql.Timestamp;
 @NamedNativeQuery(name = "Clients", query = "SELECT [PR],[client_name],[client_name_short],[full_address], isnull([employee_num],0) as [employee_num]," +
         "[kved],[kved_name],[tender_num],[tender_sum],isnull([revenue_uah],0) AS [revenue_uah],isnull([Forex_per_year_usd],0) AS [Forex_per_year_usd],isnull([loan_value_uah],0) AS [loan_value_uah],isnull([passive_value_uah],0) AS [passive_value_uah]," +
         "[person_details],CONVERT(VARCHAR(10), [last_date_contact], 104) AS [last_date_contact],[last_client_result],[client_history],[status],[comments],[login] " +
-        "FROM [crmsystem].[dbo].[GetData1]", resultSetMapping = "Clients"),
+        "FROM [GetData1]", resultSetMapping = "Clients"),
 @NamedNativeQuery(name = "ClientsByLogin", query = "SELECT [PR],[client_name],[client_name_short],[full_address], isnull([employee_num],0) as [employee_num]," +
         "[kved],[kved_name],[tender_num],[tender_sum],isnull([revenue_uah],0) AS [revenue_uah],isnull([Forex_per_year_usd],0) AS [Forex_per_year_usd],isnull([loan_value_uah],0) AS [loan_value_uah],isnull([passive_value_uah],0) AS [passive_value_uah]," +
         "[person_details],CONVERT(VARCHAR(10), [last_date_contact], 104) AS [last_date_contact],[last_client_result],[client_history],[status],[comments],[login] " +
-        "FROM [crmsystem].[dbo].[GetData1] " +
+        "FROM [GetData1] " +
         "WHERE [login] = ?", resultSetMapping = "Clients"),
 @NamedNativeQuery(name = "ClientsByOkpoForUpdate", query = "SELECT [PR],[client_name],[client_name_short],[full_address], isnull([employee_num],0) as [employee_num]," +
                 "[kved],[kved_name],[tender_num],[tender_sum],isnull([revenue_uah],0) AS [revenue_uah],isnull([Forex_per_year_usd],0) AS [Forex_per_year_usd],isnull([loan_value_uah],0) AS [loan_value_uah],isnull([passive_value_uah],0) AS [passive_value_uah]," +
                 "[person_details],CONVERT(VARCHAR(10), [last_date_contact], 23) AS [last_date_contact],[last_client_result],[client_history],[status],[comments],[login] " +
-                "FROM [crmsystem].[dbo].[GetData1] " +
+                "FROM [GetData1] " +
                 "WHERE [PR] = ?", resultSetMapping = "Clients"),
 
 @NamedNativeQuery(name = "Commisdata", query = "SELECT [client], [group],[EDRPO],[cust],Convert(varchar,cast(convert(datetime, CONVERT(int,[cust open date]),101) as date),104) AS [custOpenDate],[branch],[RM], " +
@@ -35,7 +35,7 @@ import java.sql.Timestamp;
         "isnull([▲середден розмір актив], 0) AS [avAssets], " +
         "isnull([▲середден розмір пасив],0) AS [avLiabilities], " +
         "isnull([▲заг дох акт (ROA)],0) AS [ROA] " +
-        "FROM [crmsystem].[dbo].[comissdata]", resultSetMapping = "Commisdata"),
+        "FROM [comissdata]", resultSetMapping = "Commisdata"),
 @NamedNativeQuery(name = "CommisdataByLogin", query = "SELECT [client], [group],[EDRPO],[cust],Convert(varchar,cast(convert(datetime, CONVERT(int,[cust open date]),101) as date),104) AS [custOpenDate],[branch],[RM], " +
         "isnull([▲% марж дох на акт],0) AS [interestMarginAssets], " +
         "isnull([▲% марж дох на пас],0) AS [interestMarginLiabilities], " +
@@ -50,7 +50,7 @@ import java.sql.Timestamp;
         "isnull([▲середден розмір актив], 0) AS [avAssets], " +
         "isnull([▲середден розмір пасив],0) AS [avLiabilities], " +
         "isnull([▲заг дох акт (ROA)],0) AS [ROA] " +
-        "FROM [crmsystem].[dbo].[comissdata]" +
+        "FROM [comissdata]" +
         "WHERE [ManageLogin] = ?", resultSetMapping = "Commisdata"),
 
 @NamedNativeQuery(name = "InactiveClients", query = "SELECT [Клиент] as [client],[ЕГРПОУ] as [edrpo],[Код контрагента] as [clientcode],[ТТ] as [tt],[Сегмент] as [segment],[Менеджер] as [manager],isnull([ср дн текущ средства (гривна)],0) AS [avgdaycurrdepouah]," +
@@ -59,21 +59,21 @@ import java.sql.Timestamp;
                 "isnull([ср дн сроч средства (мультивалюта)],0) AS [avgdaytermdepomult],isnull([Расчетное обслуживание],0) AS [calcservice],isnull([Кассовые операции],0) AS [kasa]," +
                 "isnull([ЗКП],0) AS [zkp],isnull([Покупка/продажа валюты],0) AS [buysellforeingcurency],isnull([Ком расходы за перечисление валюты клиентами],0) AS [forexcommision],isnull([КПК],0) AS [kpk], " +
                 "isnull([документар- ные операции],0) AS [documentoperation],isnull([Проценты по кредитам],0) AS [loanpercents],isnull([Комиссии по кредитам],0) AS [loancommision],isnull([операции с ЦБ],0) AS [securitiescommision]," +
-                "isnull([ИТОГО КТМ],0) AS [totalktm],[dates],CONVERT(VARCHAR(10), [entrydate], 104) AS [entrydate]  FROM [crmsystem].[dbo].[DATABASEInactive]", resultSetMapping = "ClientsInactive"),
+                "isnull([ИТОГО КТМ],0) AS [totalktm],[dates],CONVERT(VARCHAR(10), [entrydate], 104) AS [entrydate]  FROM [DATABASEInactive]", resultSetMapping = "ClientsInactive"),
 @NamedNativeQuery(name = "InactiveClientsByLogin", query = "SELECT [Клиент] as [client],[ЕГРПОУ] as [edrpo],[Код контрагента] as [clientcode],[ТТ] as [tt],[Сегмент] as [segment],[Менеджер] as [manager],isnull([ср дн текущ средства (гривна)],0) AS [avgdaycurrdepouah]," +
                 "isnull([ср дн сроч средства (гривна)],0) AS [avgdaytermdepouah],isnull([ср дн текущ средства (др валюты)],0) AS [avgdaycurrdepoforeign], " +
                 "isnull([ср дн сроч средства (др валюты)],0) AS [avgdaytermdepoforeign],isnull([ср дн текущ средства (мультивалюта)],0) AS [avgdaycurrdepomult]," +
                 "isnull([ср дн сроч средства (мультивалюта)],0) AS [avgdaytermdepomult],isnull([Расчетное обслуживание],0) AS [calcservice],isnull([Кассовые операции],0) AS [kasa]," +
                 "isnull([ЗКП],0) AS [zkp],isnull([Покупка/продажа валюты],0) AS [buysellforeingcurency],isnull([Ком расходы за перечисление валюты клиентами],0) AS [forexcommision],isnull([КПК],0) AS [kpk], " +
                 "isnull([документар- ные операции],0) AS [documentoperation],isnull([Проценты по кредитам],0) AS [loanpercents],isnull([Комиссии по кредитам],0) AS [loancommision],isnull([операции с ЦБ],0) AS [securitiescommision]," +
-                "isnull([ИТОГО КТМ],0) AS [totalktm],[dates],CONVERT(VARCHAR(10), [entrydate], 104) AS [entrydate] FROM [crmsystem].[dbo].[DATABASEInactive] inner join [dbo].[HB_MANAGERS] on [Менеджер] = [ManageReportName] where ManageLogin = ?", resultSetMapping = "ClientsInactive"),
+                "isnull([ИТОГО КТМ],0) AS [totalktm],[dates],CONVERT(VARCHAR(10), [entrydate], 104) AS [entrydate] FROM [DATABASEInactive] inner join [dbo].[HB_MANAGERS] on [Менеджер] = [ManageReportName] where ManageLogin = ?", resultSetMapping = "ClientsInactive"),
 
 @NamedNativeQuery(name = "ManagerCommisData", query = "exec [dbo].[managerResults] ?", resultSetMapping = "ManagerCommisData"),
-@NamedNativeQuery(name = "Managers", query = "SELECT [ManageReportName] AS manager FROM [crmsystem].[dbo].[HB_MANAGERS] ORDER BY 1", resultSetMapping = "Managers"),
+@NamedNativeQuery(name = "Managers", query = "SELECT [ManageReportName] AS manager FROM [HB_MANAGERS] ORDER BY 1", resultSetMapping = "Managers"),
 @NamedNativeQuery(name = "BranchCommisData", query = "exec [dbo].[branchResults] ?", resultSetMapping = "BranchCommisData"),
-@NamedNativeQuery(name = "ManagerDataForPieChart", query = "SELECT [status] as x, count([status]) as value FROM [crmsystem].[dbo].[GetData1] inner join [crmsystem].[dbo].[HB_MANAGERS] on [login] = [ManageLogin]  where [ManageReportName] = ? group by [status]", resultSetMapping = "ManagerDataForPieChart"),
+@NamedNativeQuery(name = "ManagerDataForPieChart", query = "SELECT [status] as x, count([status]) as value FROM [GetData1] inner join [HB_MANAGERS] on [login] = [ManageLogin]  where [ManageReportName] = ? group by [status]", resultSetMapping = "ManagerDataForPieChart"),
 @NamedNativeQuery(name = "ClientsByManager", query = "SELECT [PR],[client_name],[client_name_short],[full_address], isnull([employee_num],0) as [employee_num], [kved],[kved_name],[tender_num],[tender_sum],isnull([revenue_uah],0) AS [revenue_uah],isnull([Forex_per_year_usd],0) AS [Forex_per_year_usd],isnull([loan_value_uah],0) AS [loan_value_uah],isnull([passive_value_uah],0) AS [passive_value_uah], [person_details],cast([last_date_contact] as nvarchar(30)) AS [last_date_contact],[last_client_result],[client_history],[status],[comments],[login] \n" +
-        "FROM [crmsystem].[dbo].[GetData1] inner join [crmsystem].[dbo].[HB_MANAGERS] on [login] = [ManageLogin]  where [ManageReportName] = ?", resultSetMapping = "Clients")
+        "FROM [GetData1] inner join [HB_MANAGERS] on [login] = [ManageLogin]  where [ManageReportName] = ?", resultSetMapping = "Clients")
 })
 
 @SqlResultSetMapping(name = "Clients", classes = @ConstructorResult(targetClass = Clients.class,
