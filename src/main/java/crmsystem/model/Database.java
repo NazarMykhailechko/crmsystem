@@ -53,20 +53,20 @@ import java.sql.Timestamp;
         "FROM [comissdata]" +
         "WHERE [ManageLogin] = ?", resultSetMapping = "Commisdata"),
 
-@NamedNativeQuery(name = "InactiveClients", query = "SELECT [Клиент] as [client],[ЕГРПОУ] as [edrpo],[Код контрагента] as [clientcode],[ТТ] as [tt],[Сегмент] as [segment],[Менеджер] as [manager],isnull([ср дн текущ средства (гривна)],0) AS [avgdaycurrdepouah]," +
+@NamedNativeQuery(name = "InactiveClients", query = "SELECT [Клиент] as [client],[ЕГРПОУ] as [edrpo],[Код контрагента] as [clientcode],[ТТ] as [tt],[Сегмент] as [segment],[Manager] as [manager],isnull([ср дн текущ средства (гривна)],0) AS [avgdaycurrdepouah]," +
                 "isnull([ср дн сроч средства (гривна)],0) AS [avgdaytermdepouah],isnull([ср дн текущ средства (др валюты)],0) AS [avgdaycurrdepoforeign], " +
                 "isnull([ср дн сроч средства (др валюты)],0) AS [avgdaytermdepoforeign],isnull([ср дн текущ средства (мультивалюта)],0) AS [avgdaycurrdepomult]," +
                 "isnull([ср дн сроч средства (мультивалюта)],0) AS [avgdaytermdepomult],isnull([Расчетное обслуживание],0) AS [calcservice],isnull([Кассовые операции],0) AS [kasa]," +
                 "isnull([ЗКП],0) AS [zkp],isnull([Покупка/продажа валюты],0) AS [buysellforeingcurency],isnull([Ком расходы за перечисление валюты клиентами],0) AS [forexcommision],isnull([КПК],0) AS [kpk], " +
                 "isnull([документар- ные операции],0) AS [documentoperation],isnull([Проценты по кредитам],0) AS [loanpercents],isnull([Комиссии по кредитам],0) AS [loancommision],isnull([операции с ЦБ],0) AS [securitiescommision]," +
-                "isnull([ИТОГО КТМ],0) AS [totalktm],[dates],CONVERT(VARCHAR(10), [entrydate], 104) AS [entrydate]  FROM [DATABASEInactive]", resultSetMapping = "ClientsInactive"),
-@NamedNativeQuery(name = "InactiveClientsByLogin", query = "SELECT [Клиент] as [client],[ЕГРПОУ] as [edrpo],[Код контрагента] as [clientcode],[ТТ] as [tt],[Сегмент] as [segment],[Менеджер] as [manager],isnull([ср дн текущ средства (гривна)],0) AS [avgdaycurrdepouah]," +
+                "isnull([TOTAL KTM],0) AS [totalktm],[dates],CONVERT(VARCHAR(10), [entrydate], 104) AS [entrydate]  FROM [DATABASEInactive] where [Manager] <> 'null'", resultSetMapping = "ClientsInactive"),
+@NamedNativeQuery(name = "InactiveClientsByLogin", query = "SELECT [Клиент] as [client],[ЕГРПОУ] as [edrpo],[Код контрагента] as [clientcode],[ТТ] as [tt],[Сегмент] as [segment],[Manager] as [manager],isnull([ср дн текущ средства (гривна)],0) AS [avgdaycurrdepouah]," +
                 "isnull([ср дн сроч средства (гривна)],0) AS [avgdaytermdepouah],isnull([ср дн текущ средства (др валюты)],0) AS [avgdaycurrdepoforeign], " +
                 "isnull([ср дн сроч средства (др валюты)],0) AS [avgdaytermdepoforeign],isnull([ср дн текущ средства (мультивалюта)],0) AS [avgdaycurrdepomult]," +
                 "isnull([ср дн сроч средства (мультивалюта)],0) AS [avgdaytermdepomult],isnull([Расчетное обслуживание],0) AS [calcservice],isnull([Кассовые операции],0) AS [kasa]," +
                 "isnull([ЗКП],0) AS [zkp],isnull([Покупка/продажа валюты],0) AS [buysellforeingcurency],isnull([Ком расходы за перечисление валюты клиентами],0) AS [forexcommision],isnull([КПК],0) AS [kpk], " +
                 "isnull([документар- ные операции],0) AS [documentoperation],isnull([Проценты по кредитам],0) AS [loanpercents],isnull([Комиссии по кредитам],0) AS [loancommision],isnull([операции с ЦБ],0) AS [securitiescommision]," +
-                "isnull([ИТОГО КТМ],0) AS [totalktm],[dates],CONVERT(VARCHAR(10), [entrydate], 104) AS [entrydate] FROM [DATABASEInactive] inner join [dbo].[HB_MANAGERS] on [Менеджер] = [ManageReportName] where ManageLogin = ?", resultSetMapping = "ClientsInactive"),
+                "isnull([TOTAL KTM],0) AS [totalktm],[dates],CONVERT(VARCHAR(10), [entrydate], 104) AS [entrydate] FROM [DATABASEInactive] inner join [dbo].[HB_MANAGERS] on [Manager] = [ManageReportName] where ManageLogin = ?", resultSetMapping = "ClientsInactive"),
 
 @NamedNativeQuery(name = "ManagerCommisData", query = "exec [dbo].[managerResults] ?", resultSetMapping = "ManagerCommisData"),
 @NamedNativeQuery(name = "Managers", query = "SELECT [ManageReportName] AS manager FROM [HB_MANAGERS] ORDER BY 1", resultSetMapping = "Managers"),
