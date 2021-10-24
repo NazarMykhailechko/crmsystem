@@ -212,7 +212,7 @@
         </fieldset>
 
         <br>
-        <input type="submit" value="Оновити заявку" style="width: 877px;  margin-left: 10px;margin-top: 5px;background-color: crimson;color: white">
+        <input type="submit" value="Створити заявку" style="width: 877px;  margin-left: 10px;margin-top: 5px;background-color: crimson;color: white">
 
     </form:form>
 
