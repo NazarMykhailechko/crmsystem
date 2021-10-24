@@ -43,6 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 //Настройка для входа в систему
+                .httpBasic().disable()
                 .formLogin()
                 .loginPage("/")
                 //Перенарпавление на главную страницу после успешного входа
