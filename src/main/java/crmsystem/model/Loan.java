@@ -18,17 +18,17 @@ public class Loan {
 
     @Column(name = "edrpou", nullable = false)
     private String edrpou;
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false, columnDefinition = "nvarchar(255)")
     private String name;
-    @Column(name = "sum", nullable = false)
+    @Column(name = "sum", nullable = false, columnDefinition = "nvarchar(255)")
     private String sum;
     @Column(name = "documents", columnDefinition = "nvarchar(max)", nullable = false)
     private String documents;
-    @Column(name = "status", columnDefinition = "varchar(255) default 'на розгляді'")
+    @Column(name = "status", columnDefinition = "nvarchar(255) default 'на розгляді'")
     private String status = "на розгляді";
-    @Column(name = "manager", columnDefinition = "varchar(255)")
+    @Column(name = "manager", columnDefinition = "nvarchar(255)")
     private String manager;
-    @Column(name = "riskmanager", columnDefinition = "varchar(255)")
+    @Column(name = "riskmanager", columnDefinition = "nvarchar(255)")
     private String riskmanager;
     //@Column(name = "datetime", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     @Column(name = "datetime")
