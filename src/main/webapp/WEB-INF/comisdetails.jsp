@@ -48,7 +48,7 @@
             text-align: center;
         }
         h1,h2,h3{
-            color: red;
+            color: crimson;
         }
 
         .center-justified {

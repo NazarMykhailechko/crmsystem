@@ -49,18 +49,19 @@
                     "render": function(data, type, row, meta){
                         if(type === 'display'){
                             data = '<a href="/mainform/updateclient/' + data + '">Змінити</a>';
+                            /*data = '<a href="#" onClick="MyWindow=window.open(\'/mainform/updateclient/' + data + '\',\'MyWindow\', \'toolbar=no, location=no, directories=no, status=no, menubar=no titlebar=no resizable=yes, scrollbars=yes width=2000,height=2000\', \'popup\'); return false;">Змінити</a>'*/
                         }
                         return data;
                     }
                 }, {
                     title : 'ЄДРПОУ',
-                    data : 'pr',
+                    data : 'pr'/*,
                     "render": function(data, type, row, meta){
                         if(type === 'display'){
                             data = '<a href="/mainform/updateclient/' + data + '">' + data + '</a>';
                         }
                         return data;
-                    }
+                    }*/
                 }, {
                     title : 'Назва клієнта',
                     data : 'client_name'
@@ -644,7 +645,8 @@
 
 <div class="front-sign-in-left">
     <sec:authorize access="hasRole('ROLE_ADMIN') or hasRole('ROLE_RISK')">
-        <input type="button" style="background-color: crimson;color: white" onclick="location.href='/managersreports';" value="Управлінські звіти" />
+<%--        <input type="button" style="background-color: crimson;color: white" onclick="location.href='/managersreports';" value="Управлінські звіти" />--%>
+        <input type="button" style="background-color: crimson;color: white" onClick="window.open('/managersreports','mywindow', 'menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=3000, height=3000'); return false;" value="Управлінські звіти" />
         <input type="button" style="background-color: crimson;color: white" onclick="location.href='/risk';" value="Кредитні заявки" />
     </sec:authorize>
     <sec:authorize access="hasRole('CORP')">
