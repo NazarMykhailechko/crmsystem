@@ -294,6 +294,8 @@ public class CrmSystemController {
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveClient(@ModelAttribute("loan") Loan loan, Principal principal) {
+
+        System.out.println(loan);
         loan.setManager(principal.getName());
         loan.setDatetime(Timestamp.valueOf(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())));
         loanDao.save(loan);
