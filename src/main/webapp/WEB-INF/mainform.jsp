@@ -643,11 +643,12 @@
 </div>
 
 <div class="front-sign-in-left">
-    <sec:authorize access="hasRole('ADMIN')">
+    <sec:authorize access="hasRole('ROLE_ADMIN') or hasRole('ROLE_RISK')">
         <input type="button" style="background-color: crimson;color: white" onclick="location.href='/managersreports';" value="Управлінські звіти" />
-    </sec:authorize>
-    <sec:authorize access="hasRole('RISK')">
         <input type="button" style="background-color: crimson;color: white" onclick="location.href='/risk';" value="Кредитні заявки" />
+    </sec:authorize>
+    <sec:authorize access="hasRole('CORP')">
+        <input type="button" style="background-color: crimson;color: white" onclick="location.href='/corp';" value="Кредитні заявки" />
     </sec:authorize>
 </div>
 
