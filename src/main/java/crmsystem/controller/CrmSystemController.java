@@ -285,14 +285,14 @@ public class CrmSystemController {
         return "redirect:/corp";
     }
 
-    @RequestMapping(value ="/addloan", produces = {"text/html; charset=UTF-8"})
+    @RequestMapping(value ="/addloan")
     public String showNewClientPage(Model model) {
         Loan loan = new Loan();
         model.addAttribute("loan", loan);
         return "addloan";
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST, produces = {"text/html; charset=UTF-8"} )
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveClient(@ModelAttribute("loan") Loan loan, Principal principal) {
         loan.setManager(principal.getName());
         loan.setDatetime(Timestamp.valueOf(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())));
