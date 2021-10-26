@@ -34,8 +34,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/risk").hasRole("RISK")
                 .antMatchers("/corp").hasRole("CORP")
-                .antMatchers("/risk").hasRole("TOPS")
-                .antMatchers("/corp").hasRole("TOPS")
 
                 .antMatchers("/mainform").hasRole("USER")
                 //Доступ разрешен всем пользователей
@@ -46,7 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 //Настройка для входа в систему
-                .httpBasic().disable()
+                //.httpBasic().disable()
                 .formLogin()
                 .loginPage("/")
                 //Перенарпавление на главную страницу после успешного входа
