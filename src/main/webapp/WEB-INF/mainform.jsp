@@ -644,7 +644,7 @@
 </div>
 
 <div class="front-sign-in-left">
-    <sec:authorize access="hasRole('ROLE_ADMIN') and hasRole('ROLE_USER') and hasRole('ROLE_RISK') and hasRole('ROLE_CORP') and hasRole('ROLE_TOPS')">
+    <sec:authorize access="hasRole('ROLE_ADMIN')">
         <%--        <input type="button" style="background-color: crimson;color: white" onclick="location.href='/managersreports';" value="Управлінські звіти" />--%>
         <input type="button" style="background-color: crimson;color: white" onClick="window.open('/managersreports','mywindow', 'menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=3000, height=3000'); return false;" value="Управлінські звіти" />
         <input type="button" style="background-color: crimson;color: white" onclick="location.href='/risk';" value="Кредитні заявки" />
