@@ -644,25 +644,30 @@
 </div>
 
 <div class="front-sign-in-left">
-    <sec:authorize access="hasRole('ROLE_ADMIN')">
-        <%--        <input type="button" style="background-color: crimson;color: white" onclick="location.href='/managersreports';" value="Управлінські звіти" />--%>
+<%--    <sec:authorize access="hasRole('ROLE_ADMIN')">
+        &lt;%&ndash;        <input type="button" style="background-color: crimson;color: white" onclick="location.href='/managersreports';" value="Управлінські звіти" />&ndash;%&gt;
         <input type="button" style="background-color: crimson;color: white" onClick="window.open('/managersreports','mywindow', 'menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=3000, height=3000'); return false;" value="Управлінські звіти" />
         <input type="button" style="background-color: crimson;color: white" onclick="location.href='/risk';" value="Кредитні заявки" />
         <input type="button" style="background-color: crimson;color: white" onclick="location.href='/corp';" value="Кредитні заявки" />
-    </sec:authorize>
-    <sec:authorize access="hasRole('ROLE_TOPS') and hasRole('ROLE_RISK')">
+    </sec:authorize>--%>
+    <sec:authorize access="hasRole('ROLE_TOPS')">
 <%--        <input type="button" style="background-color: crimson;color: white" onclick="location.href='/managersreports';" value="Управлінські звіти" />--%>
         <input type="button" style="background-color: crimson;color: white" onClick="window.open('/managersreports','mywindow', 'menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=3000, height=3000'); return false;" value="Управлінські звіти" />
+        <%--<input type="button" style="background-color: crimson;color: white" onclick="location.href='/risk';" value="Кредитні заявки" />--%>
+    </sec:authorize>
+    <sec:authorize access="hasRole('ROLE_RISK')">
+        <%--        <input type="button" style="background-color: crimson;color: white" onclick="location.href='/managersreports';" value="Управлінські звіти" />--%>
+        <%--<input type="button" style="background-color: crimson;color: white" onClick="window.open('/managersreports','mywindow', 'menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=3000, height=3000'); return false;" value="Управлінські звіти" />--%>
         <input type="button" style="background-color: crimson;color: white" onclick="location.href='/risk';" value="Кредитні заявки" />
     </sec:authorize>
-    <sec:authorize access="hasRole('ROLE_TOPS') and hasRole('ROLE_CORP')">
+    <sec:authorize access="hasRole('ROLE_CORP')">
         <%--        <input type="button" style="background-color: crimson;color: white" onclick="location.href='/managersreports';" value="Управлінські звіти" />--%>
-        <input type="button" style="background-color: crimson;color: white" onClick="window.open('/managersreports','mywindow', 'menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=3000, height=3000'); return false;" value="Управлінські звіти" />
+        <%--<input type="button" style="background-color: crimson;color: white" onClick="window.open('/managersreports','mywindow', 'menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=3000, height=3000'); return false;" value="Управлінські звіти" />--%>
         <input type="button" style="background-color: crimson;color: white" onclick="location.href='/corp';" value="Кредитні заявки" />
     </sec:authorize>
-    <sec:authorize access="hasRole('ROLE_CORP') and hasRole('ROLE_USER')">
+<%--    <sec:authorize access="hasRole('ROLE_CORP') and hasRole('ROLE_USER')">
         <input type="button" style="background-color: crimson;color: white" onclick="location.href='/corp';" value="Кредитні заявки" />
-    </sec:authorize>
+    </sec:authorize>--%>
 </div>
 
 
