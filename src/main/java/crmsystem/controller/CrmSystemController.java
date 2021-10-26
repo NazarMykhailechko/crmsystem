@@ -5,6 +5,8 @@ import com.google.gson.Gson;
 import crmsystem.dao.DatabaseDao;
 import crmsystem.dao.LoanDao;
 import crmsystem.dto.Clients;
+import crmsystem.dto.CommisDetails;
+import crmsystem.dto.Dates;
 import crmsystem.model.BankBranch;
 import crmsystem.model.Database;
 import crmsystem.model.Loan;
@@ -140,6 +142,18 @@ public class CrmSystemController {
         q.setParameter(2,cust);
 
         List<Object[]> results = q.getResultList();
+
+/*        Query fieldnames = em.createNativeQuery("SELECT distinct [dates] FROM [DATABASEcomision] order by [dates] desc");
+        List<Dates[]> listOfFields = fieldnames.getResultList();
+
+        Query q = em.createNativeQuery("EXEC [dbo].[crossdata] ?, ?");
+        q.setParameter(1,edrpou);
+        q.setParameter(2,cust);
+
+        List<CommisDetails[]> results = q.getResultList();*/
+
+        System.out.println(listOfFields);
+        System.out.println(results);
 
         model.addAttribute("listOfVotes", results);
         model.addAttribute("listOfFields", listOfFields);

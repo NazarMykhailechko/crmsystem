@@ -5,11 +5,13 @@ C:\Users\Mykhailechko\IdeaProjects\projectSQLserver\src\main\java\crmsystem\dto\
 C:\Users\Mykhailechko\IdeaProjects\projectSQLserver\src\main\java\crmsystem\dao\LoanDao.java
 C:\Users\Mykhailechko\IdeaProjects\projectSQLserver\src\main\java\crmsystem\dao\RoleDao.java
 C:\Users\Mykhailechko\IdeaProjects\projectSQLserver\src\main\java\crmsystem\controller\LoanController.java
+C:\Users\Mykhailechko\IdeaProjects\projectSQLserver\src\main\java\crmsystem\dto\Dates.java
 C:\Users\Mykhailechko\IdeaProjects\projectSQLserver\src\main\java\crmsystem\controller\CrmSystemController.java
 C:\Users\Mykhailechko\IdeaProjects\projectSQLserver\src\main\java\crmsystem\dto\Commisdata.java
 C:\Users\Mykhailechko\IdeaProjects\projectSQLserver\src\main\java\crmsystem\config\WebSecurityConfig.java
 C:\Users\Mykhailechko\IdeaProjects\projectSQLserver\src\main\java\crmsystem\dao\DatabaseDao.java
 C:\Users\Mykhailechko\IdeaProjects\projectSQLserver\src\main\java\crmsystem\controller\ClientRestController.java
+C:\Users\Mykhailechko\IdeaProjects\projectSQLserver\src\main\java\crmsystem\dto\CommisDetails.java
 C:\Users\Mykhailechko\IdeaProjects\projectSQLserver\src\main\java\crmsystem\controller\AdminController.java
 C:\Users\Mykhailechko\IdeaProjects\projectSQLserver\src\main\java\crmsystem\dto\ManagerCommisData.java
 C:\Users\Mykhailechko\IdeaProjects\projectSQLserver\src\main\java\crmsystem\SpringBootWebRun.java

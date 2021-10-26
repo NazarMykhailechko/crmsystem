@@ -1,5 +1,6 @@
 crmsystem\dto\BranchCommisData.class
 crmsystem\controller\AdminController.class
+crmsystem\dto\Dates.class
 crmsystem\model\Database.class
 crmsystem\config\WebSecurityConfig.class
 crmsystem\dao\LoanDao.class
@@ -22,5 +23,6 @@ crmsystem\SpringBootWebRun.class
 crmsystem\controller\RegistrationController.class
 crmsystem\config\MvcConfig.class
 crmsystem\dao\DatabaseDao.class
+crmsystem\dto\CommisDetails.class
 crmsystem\dto\Status.class
 crmsystem\dto\Clients.class
