@@ -45,7 +45,7 @@ public class ClientRestController {
     public ResponseEntity<Iterable<Clients>> findAll(Principal principal, Authentication authentication) {
 
         boolean hasUserRole = authentication.getAuthorities().stream()
-                .anyMatch(r -> r.getAuthority().equals("ROLE_ADMIN"));
+                .anyMatch(r -> r.getAuthority().equals("ROLE_ADMIN") || r.getAuthority().equals("ROLE_TOPS"));
         List<Clients> res;
         if (hasUserRole) {
             res = em.createNamedQuery("Clients",Clients.class).getResultList();
@@ -64,7 +64,7 @@ public class ClientRestController {
     public ResponseEntity<Iterable<Commisdata>> findAllComissData(Principal principal, Authentication authentication) {
 
         boolean hasUserRole = authentication.getAuthorities().stream()
-                .anyMatch(r -> r.getAuthority().equals("ROLE_ADMIN"));
+                .anyMatch(r -> r.getAuthority().equals("ROLE_ADMIN") || r.getAuthority().equals("ROLE_TOPS"));
         List<Commisdata> res;
         if (hasUserRole) {
             res = em.createNamedQuery("Commisdata", Commisdata.class).getResultList();
@@ -83,7 +83,7 @@ public class ClientRestController {
     public ResponseEntity<Iterable<ClientsInactive>> findAllClientsInactive(Principal principal, Authentication authentication) {
 
         boolean hasUserRole = authentication.getAuthorities().stream()
-                .anyMatch(r -> r.getAuthority().equals("ROLE_ADMIN"));
+                .anyMatch(r -> r.getAuthority().equals("ROLE_ADMIN") || r.getAuthority().equals("ROLE_TOPS"));
         List<ClientsInactive> res;
         if (hasUserRole) {
             res = em.createNamedQuery("InactiveClients",ClientsInactive.class).getResultList();
