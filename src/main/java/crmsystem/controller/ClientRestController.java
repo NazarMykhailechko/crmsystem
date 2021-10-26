@@ -259,7 +259,7 @@ public class ClientRestController {
         //List<Loan> res = em.createQuery("SELECT c FROM LOANS c", Loan.class).getResultList();
 
         boolean hasUserRole = authentication.getAuthorities().stream()
-                .anyMatch(r -> r.getAuthority().equals("ROLE_ADMIN") || r.getAuthority().equals("ROLE_RISK"));
+                .anyMatch(r -> r.getAuthority().equals("ROLE_ADMIN") || r.getAuthority().equals("ROLE_RISK") || r.getAuthority().equals("ROLE_TOPS"));
         List<Loan> res;
         if (hasUserRole) {
             TypedQuery<Loan> query = em.createQuery("Select l from Loan l", Loan.class);
